@@ -10,7 +10,7 @@ export class AppComponent  {
     0: {
       audio_name: '20190923_ag23_3456.wav',
       // audio_file: 'https://wavesurfer-js.org/example/elan/transcripts/001z.mp3',
-      audio_file: 'https://www.upwork.com/messages/att/1184484886987841536',
+      audio_file: 'https://cdn.jsdelivr.net/gh/eltaiguer/angular-fgeh5s@master/src/assets/output/test.mp3',
       found_items: {
         '0': {
           'start': 0, 
