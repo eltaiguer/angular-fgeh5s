@@ -1,0 +1,137 @@
+$slider-thumb-size: .75rem;
+$slider-thumb-padding: .1875rem;
+$slider-thumb-color: #FFFF;
+$slider-bg-color: #9DA6B4;
+$slider-bg-color-selected: #59DBC1;
+
+app-output {
+  mat-slide-toggle .mat-slide-toggle-content {
+    font-family: Muli;
+    font-weight: bold;
+    font-size: .75rem;
+  }
+  
+  .mat-slide-toggle-bar {
+    border: .0625rem solid #262E47;
+    background-color: $slider-bg-color;
+  }
+  
+  .mat-slide-toggle-thumb-container {
+    height: $slider-thumb-size;
+    width: $slider-thumb-size;
+    top: calc(50% - #{$slider-thumb-size / 2});
+    left: $slider-thumb-padding;
+  }
+  
+  .mat-slide-toggle-thumb {
+    height: $slider-thumb-size;
+    width: $slider-thumb-size;
+  }
+
+  .mat-slide-toggle.mat-checked {
+    .mat-slide-toggle-thumb {
+      background-color: $slider-thumb-color;
+    }
+    
+    .mat-slide-toggle-thumb-container {
+      transform: translate3d(calc(200% - #{$slider-thumb-padding}), 0, 0);
+      left: 0;
+    }
+    
+    .mat-slide-toggle-bar {
+      background-color: $slider-bg-color-selected;
+    }
+  }
+
+  .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 1;
+    padding: 0;
+  }
+
+  .tabs-section {
+    .mat-tab-group.mat-primary .mat-ink-bar {
+      background-color: #262E47;
+      height: .25rem;
+      border-radius: .3125rem;
+    }
+
+    .mat-tab-label-active .mat-tab-label-content {
+      font-weight: bold;
+    }
+
+    .mat-tab-label-content {
+      color: #262E47;
+      font-family: 'Muli';
+      font-size: 18px;
+    }
+
+    .mat-tab-label {
+      min-width: 8.75rem;
+      padding: 0;
+    }
+  }
+
+  .tabs .mat-tab-header {
+    background-color: white;
+    border-bottom: 0;
+    padding: .375rem;
+  }
+
+  .mat-accent .mat-slider-track-fill {
+    background-color: rgba(0,0,0,0.26);
+  }
+
+  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb,
+  .mat-accent .mat-slider-thumb {
+    background-color: #262E47
+  }
+}
+
+app-comment {
+  .mat-form-field-appearance-legacy .mat-form-field-infix,
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-underline,
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+  
+  .mat-form-field-infix {
+    border: 0;
+    padding: 0;
+  }
+
+  .mat-form-field-wrapper,
+  .mat-form-field-flex,
+  .mat-form-field-infix,
+  .mat-input-element {
+    height: 100%;
+    margin: 0;
+  }
+
+  &.mat-form-field {
+    border: solid 1px;
+  }
+}
+
+.wavesurfer-region {
+  pointer-events: none;
+}
+
+.tabs-section {
+  .divider {
+    background-color: #E8F0FE;
+    width: .125rem;;
+    margin: 0 1.75rem;
+    flex-shrink: 0;
+  }
+
+  app-rules-section,
+  app-parameters-section {
+    thead {
+      display: none;
+    }
+  }
+}

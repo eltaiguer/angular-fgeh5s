@@ -1,0 +1,49 @@
+<div class="list">
+  <div class="list-header">
+    <div class="left-header">
+      <h1>{{title}}</h1>
+      <app-chip [label]="totalRows" backgroundColor="#E8F6FF" color="#262E47"></app-chip>
+    </div>
+    <div class="right-header">
+      <form *ngIf="hasSearchbar" class="input-form">
+        <mat-form-field class="searchbar">
+          <input name="filter" [(ngModel)]="filterValue" (ngModelChange)="handleFilterInput()" type="text" matInput>
+        </mat-form-field>
+      </form>
+      <app-chip class="header-chip" *ngIf="getCheckedRows().length" label="{{getCheckedRows().length + ' Selected'}}" backgroundColor="#262E47" color="#FFFFFF"></app-chip>
+    </div>
+  </div>
+
+  <mat-list>
+    <mat-list-item *ngFor="let row of visibleRows">
+      <div class="row-list">
+        <div class="left-side">
+          <mat-checkbox [(ngModel)]="row.checked" *ngIf="hasCheckboxRow" class="list-checkbox" [disableRipple]="true"></mat-checkbox>
+          <img *ngIf="row.img && isIcon(row.img); else svgBlock" class="row-img" [src]="row.img.src">
+          <ng-template #svgBlock>
+            <mat-icon [class.has-bg-color]="row.img.backgroundColor" [style.backgroundColor]="row.img.backgroundColor" class="svg-icon" svgIcon="oval-icon" [style.color]="row.img.mainColor"></mat-icon>
+          </ng-template>
+          <span class="row-text">{{row.text}}</span>
+        </div>
+        <div class="right-side">
+          <app-chip *ngFor="let chip of row.chips" 
+            [label]="chip.label" [backgroundColor]="chip.backgroundColor"
+            [color]="chip.fontColor">
+          </app-chip>
+          <ng-container *ngIf="hasMeatballMenu">
+            <button class="meatball-btn" mat-icon-button disableRipple="true"
+            [matMenuTriggerFor]="meatBallMenu">
+              <mat-icon svgIcon="meatball-icon"></mat-icon>
+            </button>
+            <mat-menu class="meatball-floating-menu" #meatBallMenu="matMenu">
+              <button class="meatball-menu-item" mat-menu-item>Settings</button>
+              <button class="meatball-menu-item" [disabled]="true" mat-menu-item>Profile</button>
+              <button class="meatball-menu-item" mat-menu-item>Logout</button>
+            </mat-menu>
+          </ng-container>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+
+</div>

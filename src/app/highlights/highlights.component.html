@@ -1,0 +1,16 @@
+<div class="selection-buttons">
+  <mat-button-toggle-group (click)="colorClicked(group)" #group="matButtonToggleGroup">
+    <mat-button-toggle [style.color]="highlightButtons[0].color" [value]="highlightButtons[0]">
+      <mat-icon>Color 1</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle [style.color]="highlightButtons[1].color" [value]="highlightButtons[1]">
+      <mat-icon>Color 2</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<div class="highlights-container">
+  <app-highlights-actions [hasComments]="comments && comments.length" [audioFile]="audioFile"
+   (toggleAudioPlayer)="toggleAudioPlayer($event)" (toggleComments)="toggleComments($event)"></app-highlights-actions>
+  <app-audio-player *ngIf="showAudioPlayer" [comments]="comments" [audioFile]="audioFile" [showComments]="showComments"></app-audio-player>
+  <app-text [highlights]="highlights" [highlightData]="selectedHighlightData" [textData]="textData"></app-text>
+</div>

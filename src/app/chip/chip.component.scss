@@ -1,0 +1,16 @@
+:host(.slim-chip) .chip { 
+	font-size: .625rem;
+	line-height: 1.3;
+  padding-bottom: .125rem;
+  padding-top: .125rem;
+}
+
+.chip {
+  border-radius: .8125rem;
+  display: inline-block;
+  font-family: Muli;
+  font-size: .75rem;
+  padding: .3125rem .625rem;
+  text-align: center;
+  line-height: 1.25;
+}

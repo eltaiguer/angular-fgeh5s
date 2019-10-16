@@ -1,0 +1,93 @@
+$text-color: #262E47;
+@import '../../../variables';
+
+.item-data {
+  display: inline-block;
+  width: 55%;
+}
+
+.time {
+	color: $text-color;
+	font-size: .625rem;
+	font-weight: bold;
+	line-height: 1.3;
+}
+
+.time-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > * + * {
+    margin-left: 1.25rem;
+  }
+}
+
+.rules {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: .75rem;
+  
+  .rule-title {
+    color: $text-color;
+  }
+
+  .rule-values {
+    margin-top: .9375rem;
+  }
+
+  .rule-yes {
+    color: #59DBC1;
+  }
+}
+
+.accuracy {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: .75rem;
+  width: 30%;
+  flex-shrink: 0;
+
+  .progress-label {
+    font-size: 1rem;		
+    font-weight: 500;	
+    margin-bottom: .4375rem;
+  }
+
+  .progress-bar {
+    border-radius: .1875rem;
+    height: .375rem;
+
+    .mat-progress-bar-buffer {
+      background-color: #E8F6FF;
+    }
+  }
+
+  &.red-progress .progress-label {
+    color: $red-progress;
+  }
+
+  &.yellow-progress .progress-label {
+    color: $yellow-progress;
+  }
+
+  &.green-progress .progress-label {
+    color: $green-progress;
+  }
+}
+
+.accuracy-title {
+  color: $text-color;
+  font-size: .75rem;
+}
+
+.rules {
+  flex-grow: 1;
+}
+
+app-highlight-chip {
+  display: block;
+  margin-top: .625rem;
+}

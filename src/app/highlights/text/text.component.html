@@ -1,0 +1,15 @@
+<div (mousemove)="listenMouseMove($event)" class="text-container" *ngIf="textData"
+  (mousedown)="startSelectionOutside($event)" (mouseup)="endSelection($event)" #mainTextContainer
+  [attr.style]="domSanitizer.bypassSecurityTrustStyle('--some-var: ' + getSelectionColor())">
+  <ng-container *ngFor="let key of keys(textData); index as i; last as isLast">
+    <span (mousedown)="startSelection($event, key)" (mouseup)="endSelection($event, key)">
+      <span class="word" [style.backgroundColor]="hasHighlight(key)?.group_color" [matTooltip]="hasHighlight(key)?.item_name" [matTooltipDisabled]="!hasHighlight(key)">
+        <span>{{textData[key].Text}}</span>
+        <button *ngIf="isLastWordInHighlight(key)" (click)="deleteHighlight(key, $event)" class="close-btn" mat-icon-button>
+          <mat-icon svgIcon="highlight-cross-icon"></mat-icon>
+        </button>
+      </span>
+      <span class="word" [style.backgroundColor]="!isLastWordInHighlight(key) && hasHighlight(key)?.group_color">{{!isLast ? '&thinsp;' : ''}}</span>
+    </span>
+  </ng-container>
+</div>

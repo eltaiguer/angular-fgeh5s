@@ -1,0 +1,14 @@
+<app-card-item *ngFor="let key of keys(items)">
+  <div class="item-data">
+    <div class="time-chip">
+      <span class="time">{{items[key].timestamp_init | date:'mm:ss'}} - {{items[key].timestamp_end | date:'mm:ss'}}</span>
+    </div>
+    <app-highlight-chip [color]="items[key].group_color">{{items[key].item_name}}</app-highlight-chip>
+  </div>
+  <div class="divider"></div>
+  <div class="accuracy" [ngClass]="getColorClass(getAccuracy(items[key].accuracy))">
+    <div class="accuracy-title">Accuracy</div>
+      <span class="progress-label">{{getAccuracy(items[key].accuracy)}}%</span>
+      <mat-progress-bar class="progress-bar" mode="determinate" [value]="getAccuracy(items[key].accuracy)"></mat-progress-bar>
+  </div>
+</app-card-item>

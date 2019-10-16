@@ -1,0 +1,228 @@
+$text-color: #262E47;
+$row-border: .0625rem solid #DDE1EE;
+$checkbox-tick-color: #59DBC1 ;
+$list-bg-color: #FFFFFF;
+$list-shadow: 0 .125rem .375rem 0 #DDEFFA;
+$searchbar-bg-color: #E8F2F9;
+$two-line-row-media: 'only screen and (max-width: 600px)';
+
+.list {
+	border-radius: .125rem;
+	background-color: $list-bg-color;
+	box-shadow: $list-shadow;
+	color: $text-color;
+	font-family: Muli;
+  padding-bottom: .9375rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.list-header {
+  align-items: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 0.875rem 0.875rem .625rem;
+  
+  h1 {
+    display: inline;
+    font-size: 1.375rem;
+    font-weight: bold;
+    letter-spacing: .014em;
+    line-height: 1.27;
+    margin: 0;
+    margin-right: .5rem;
+    padding: .25rem 0;
+  }
+
+  .left-header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    margin-right: .625rem;
+    padding: .25rem 0;
+  }
+
+  .right-header {
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: right;
+    min-width: 8.75rem;
+    width: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .input-form {
+      max-width: 100%;
+      padding: .25rem 0;
+    }
+
+    * + * {
+      margin-left: .5rem;
+    }
+
+    .header-chip {
+      padding: .25rem 0;
+    }
+  }
+}
+
+.searchbar {
+  background-color: $searchbar-bg-color;
+  background-image: url('assets/lupa.svg');
+  background-position: right .6875rem center;
+  background-repeat: no-repeat;
+  background-size: 1.1875rem .9375rem;
+  border: .0625rem solid rgba(38,46,71,0.38);
+  border-radius: .25rem;
+  box-sizing: border-box;
+  padding-right: 2rem;
+  padding-left: .5rem;
+  height: 1.9375rem;
+  max-width: 10.75rem;
+  width: 100%;
+}
+
+.mat-list {
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.row-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: .875rem 1.25rem;
+  width: 100%;
+
+  .left-side,
+  .right-side {
+    align-items: center;
+    display: flex;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
+  }
+
+  @media #{$two-line-row-media} {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+.row-list .right-side * + * {
+  margin-left: 1.125rem;
+}
+
+.svg-icon {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: .4375rem;
+  justify-content: center;
+  width: .4375rem;
+
+  &.has-bg-color {
+    padding: .3125rem;
+    border-radius: 50%;
+  }
+}
+
+.mat-list-item {
+  border-top: $row-border;
+
+  &:last-child {
+    border-bottom: $row-border;
+  }
+}
+
+.row-text {
+  font-family: Muli;
+  font-size: .875rem;
+  font-weight: bold;
+  line-height: 1.28;
+  margin-left: .6875rem;
+}
+
+.row-img {
+  height: 1.125rem;
+  width: 1.125rem;
+}
+
+.list-checkbox {
+  align-items: center;
+  display: flex;
+}
+
+.list-checkbox + .mat-icon,
+.list-checkbox + .row-img {
+  margin-left: .6875rem;
+}
+
+.list-checkbox .mat-checkbox-background {
+  background-color: white;
+}
+
+.meatball-menu-item {
+  font-family: Muli;
+  text-transform: uppercase;
+}
+
+// custom scrollbar css
+.mat-list {
+  &::-webkit-scrollbar {
+    background-color: #E2E9F4;
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #9DA6B4;
+    border-radius: 8px;
+    border: solid #E2E9F4 2px;
+  }
+
+  // firefox styles
+  scrollbar-color: #9DA6B4 #E2E9F4;
+  scrollbar-width: thin;
+}
+
+// angular material overrides
+// styles for list component
+// override input style for searchbar in list component
+.searchbar {
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix,
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-underline,
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+  
+  .mat-form-field-infix {
+    border: 0;
+    padding: 0;
+  }
+
+  .mat-form-field-wrapper,
+  .mat-form-field-flex,
+  .mat-form-field-infix,
+  .mat-input-element {
+    height: 100%;
+    margin: 0;
+  }
+
+  &.mat-form-field {
+    border: solid 1px;
+  }
+}

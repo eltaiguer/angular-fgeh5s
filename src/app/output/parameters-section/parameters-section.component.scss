@@ -1,0 +1,21 @@
+// table {
+//   width: 100%;
+// }
+
+.key-label {
+  margin-right: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  height: 100%;
+}
+
+.divider {
+  margin: 0 2rem;
+}
+
+.value {
+  flex-shrink: 0;
+  width: 10rem;
+}

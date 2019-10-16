@@ -1,0 +1,89 @@
+$background-color: #262E47;
+$accent-color: #FE6093;
+
+:host(.bottom-comment) .comment-dialog:after {
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: $background-color;
+  border-right-color: transparent;
+  border-width: .25rem;
+  margin-left: -.25rem;
+  right: unset;
+  top: unset;
+
+  @media only screen and (max-width: 450px) {
+    display: none;
+  }
+
+}
+
+:host(.left-comment) .comment-dialog:after {
+  left: 100%;
+	top: 50%;
+	border-color: rgba(38, 46, 71, 0);
+	border-left-color: $background-color;
+	border-width: .25rem;
+	margin-top: -.25rem;
+  right: unset;
+}
+
+.comment-dialog {
+  background-color: $background-color;
+  border-radius: .25rem;
+  box-shadow: .0625rem .125rem .4375rem 0 #E8F6FF;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: Muli;
+  padding: .875rem 1.25rem;
+	position: relative;
+  width: 18rem;
+
+  &:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(38, 46, 71, 0);
+    border-right-color: $background-color;
+    border-width: .25rem;
+    margin-top: -.25rem;
+  }
+
+  @media only screen and (max-width: 450px) {
+    box-sizing: border-box;
+    width: 98vw;
+  }
+}
+
+.title {
+  font-size: .75rem; 
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.body {
+  font-size: .75rem;
+  line-height: 1.25;
+}
+
+.author {
+  font-size: .875rem;
+  line-height: 1.625;
+
+  .accent {
+    color: $accent-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

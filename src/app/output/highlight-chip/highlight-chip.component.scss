@@ -1,0 +1,25 @@
+.highlight-chip {
+  align-items: center;
+	border: .0625rem solid #9DA6B4;
+	border-radius: .1875rem;
+  display: inline-flex;
+  padding: .3125rem;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  .color-dot {
+    border-radius: 50%;
+    flex-shrink: 0;
+    height: .375rem;
+    margin-right: .3125rem;
+    width: .375rem;
+  }
+
+  .highlight-name {
+    color: #677083;
+    font-size: .75rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

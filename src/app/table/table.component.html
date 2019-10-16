@@ -1,0 +1,50 @@
+<div class="table-container">
+  <table cdk-table [dataSource]="dataSource">
+    <ng-container *ngFor="let col of cols" [cdkColumnDef]="col.field">
+      <th cdk-header-cell *cdkHeaderCellDef> 
+        {{col.header}}
+      </th>
+
+      <td [ngSwitch]="col.field" *cdkCellDef="let element" [class]="col.field">
+
+        <ng-container *ngSwitchCase="'moduleName'">
+          <img src="assets/module-icon.svg">
+          {{element[col.field]}}
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'creationDate'">
+          {{element[col.field].date}} by <a>{{element[col.field].by}}</a>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'overallAccuracy'">
+          <div [ngClass]="getColorClass(element[col.field])">
+            <span class="progress-label">{{element[col.field]}}%</span>
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="element[col.field]"></mat-progress-bar>
+          </div>        
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'status'">
+          <select class="status-select" matNativeControl [value]="element[col.field].current" 
+            [ngClass]="element[col.field].current === 'active' ? 'active' : 'inactive'">
+            <option *ngFor="let val of element[col.field].values" [value]="val">{{val}}</option>
+          </select>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'actions'">
+          <button *ngFor="let a of element[col.field]" class="action-btn {{a}}-btn">
+            <img src="assets/{{a}}.svg">
+          </button>
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>{{element[col.field]}}</ng-container>        
+      </td>
+    </ng-container>
+
+    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="btn-row">
+    <button [disabled]="!dataSource.hasMore" class="round-btn" mat-flat-button (click)="loadMore()">Load more</button>
+  </div>
+</div>

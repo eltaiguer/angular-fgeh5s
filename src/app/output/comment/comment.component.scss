@@ -1,0 +1,34 @@
+:host {
+  background-color: #E8F6FF;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px 0 #DDEFFA;
+  display: block;
+  padding: .5rem 1.125rem;
+}
+
+.comment-field {
+  background-color: white;
+  border: .0625rem solid rgba(38,46,71,0.38);
+  border-radius: .25rem;
+  box-sizing: border-box;
+  padding-right: 2rem;
+  padding-left: .5rem;
+  height: 1.9375rem;
+  flex-grow: 1;
+
+  input {
+    font-family: 'Muli';
+  }
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+}
+
+.mat-raised-button {
+  background-color: #FE6093;
+  color: white;
+  font-family: 'Muli';
+  margin-left: .3125rem;
+}

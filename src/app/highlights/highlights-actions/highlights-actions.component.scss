@@ -1,0 +1,76 @@
+$btn-checked-color: #FE6093;
+
+.actions-container {
+  font-family: Muli;
+  display: flex;
+  justify-content: space-between;
+	border-radius: .125rem;
+	background-color: rgba(38, 46, 71, .03);
+  box-sizing: border-box;
+  padding: .75rem 2.25rem;
+  width: 100%;
+}
+
+.right-side {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  flex-wrap: wrap;
+
+  mat-slide-toggle {
+    margin-right: .9375rem;
+  }
+
+  & > * {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+
+  .action-btn {
+    background-color: #FFFFFF;
+    border: .0625rem solid rgba(38,46,71,0.31);
+    box-sizing: border-box;
+    padding: .5rem;
+    height: 2.3125rem;
+    width: 2.75rem;
+    line-height: 1;
+    min-width: 0;
+
+    & + .action-btn {
+      margin-left: .625rem;
+    }
+
+    mat-icon {
+      height: .875rem;
+      object-fit: cover;
+      width: .875rem;
+      color: #262E47;
+
+      &.outline-icon {
+        color: white;
+        stroke: #262E47;
+        stroke-width: 2.1875rem;
+      }
+    }
+
+    &.mat-button-toggle-checked {
+      background-color: $btn-checked-color;
+    }
+
+    &[disabled],
+    &.mat-button-toggle-disabled {
+      background-color: inherit;
+    }
+  }
+
+  .redo-icon {
+    transform: scaleX(-1);
+  }
+}
+
+

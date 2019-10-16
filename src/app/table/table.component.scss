@@ -1,0 +1,279 @@
+$primary-color: #262E47;
+$accent-color: #FE6093;
+$secondary-color: #677083;
+
+@import '../../variables';
+
+* {
+  font-family: 'Muli', sans-serif;
+}
+
+a,
+button,
+select {
+  cursor: pointer;
+}
+
+.table-container {
+  max-width: 100%;
+}
+
+table {
+  border-spacing: 0 18px;
+  font-size: 10px;
+  text-align: center; 
+  width: 100%;
+
+  @media #{$media-third-step} {
+    font-size: 5px;
+  }
+}
+
+.cdk-header-row {
+	background-color: #FFFFFF;
+	border-radius: 2px;
+	box-shadow: 0 2px 6px 0 #DDEFFA;
+	width: 1264px;
+  height: 47px;
+}
+
+th {
+  color: $primary-color;
+  font-weight: normal;
+  letter-spacing: .02px;
+  line-height: 1.5;
+}
+
+tr {
+	background-color: #FFFFFF;
+	border-radius: 2px;
+	box-shadow: 0 2px 6px 0 #DDEFFA;
+  height: auto;
+}
+
+td {
+  text-align: center;
+}
+
+th, td {
+  font-size: 1.6em;
+  padding: 0 20px;  
+  position: relative;
+  white-space: nowrap;
+
+  @media #{$media-first-step} {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    white-space: normal;
+  }
+
+  @media #{$media-second-step} {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+// vertical divider styles
+th + th,
+td + td {
+  &::after {
+	  opacity: 0.27;
+    border: 1px solid #9DA6B4;
+    content: ' ';
+    height: 22px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+  }
+}
+
+// making last vertical divider take full height
+td + td:last-of-type {
+  &::after {
+    height: 100%;
+  }
+}
+
+// specific classes depending the type of the data displayed eon the table
+// proper naming convention for clases is with hyphens but this class is extracted from the data 
+// instead of converting to convention I decided to keep it clean and use the same for the clarity
+.moduleName {
+  align-items: center;
+	color: $primary-color;
+  display: flex;
+	font-weight: bold;
+	letter-spacing: .02px;
+	line-height: 1.5;
+  padding-left: 0;
+  text-transform: capitalize;
+
+  @media #{$media-second-step} {
+    flex-direction: column;
+    padding-left: 10px;
+  }
+
+  img {
+    background-color: $accent-color;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 2px 6px 0 #DDEFFA;
+    box-sizing: border-box;
+    display: flex;
+    height: auto;
+    margin-right: 21px;
+    padding: 25px;
+    vertical-align: middle;
+    max-width: 71px;
+
+
+    @media #{$media-second-step} {
+      margin-right: 0;
+      padding: 10px;
+      width: 10px;
+      height: 10px;
+      box-sizing: content-box;
+    }
+
+    @media #{$media-third-step} {
+      padding: 8px;
+      width: 8px;
+      height: 8px;
+    }
+  }
+}
+
+%secondary-text {
+	font-size: 1.4em;
+	letter-spacing: .01px;
+	line-height: 1.85;
+  color: #677083;
+}
+
+.code,
+.creationDate {
+  @extend %secondary-text;
+}
+
+.creationDate a {
+  color: $accent-color;
+  text-decoration: underline;
+}
+
+.btn-row {
+  margin-top: 57px;
+  text-align: center;
+}
+
+.round-btn {
+  border-radius: 33px;
+  border: 1px solid #262E47;	
+  font-size: 1.3em;	
+  font-weight: bold;	
+  letter-spacing: 0.01px;	
+  line-height: 1.23;
+  padding: 14px 50px;
+}
+
+.overallAccuracy {
+
+  .progress-label {
+    font-family: Roboto;		
+    font-weight: 500;	
+    line-height: 1.18;
+    margin-bottom: 7px;
+  }
+
+  .progress-bar {
+    border-radius: 3px;
+    height: 6px;
+
+    .mat-progress-bar-buffer {
+      background-color: #E8F6FF;
+    }
+  }
+}
+
+.red-progress .progress-label {
+  color: $red-progress;
+}
+
+.yellow-progress .progress-label {
+  color: $yellow-progress;
+}
+
+.green-progress .progress-label {
+  color: $green-progress;
+}
+
+.status {
+  font-size: 1.2em;
+}
+
+// custom status select styles
+.status-select {
+	font-size: 1em;
+	letter-spacing: .01px;
+	line-height: 14px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-position: 90% center;
+  background-repeat: no-repeat;
+  background-size: 5px;
+  border-radius: 13px;
+  border: 0;
+  height: 26px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: capitalize;
+  max-width: 93px;
+
+  &.active {
+    background-color: #C2F3E9;
+    background-image: url('assets/down-arrow-green.svg');
+    color: #37A38D;
+  }
+
+  &.inactive {
+    background-color: rgba(254, 96, 146, 0.171);
+    background-image: url('assets/down-arrow-red.svg');
+    color: #fd739f;
+  }
+}
+
+.action-btn {
+	border-radius: 13px;
+	height: 21px;
+	width: 32px;
+  border: 0;
+	
+  & + .action-btn {
+    margin-left: 14px;
+
+    @media #{$media-first-step} {
+      margin-left: 0;
+      margin-top: 5px;
+    }
+  }
+
+  img {
+    height: 13px;
+    object-fit: contain;
+    vertical-align: middle;
+    width: 10px;
+  }
+
+  &.add-btn {
+    background-color: $accent-color;
+  }
+
+  &.settings-btn {
+    background-color: #E8F6FF;
+  }
+}
+

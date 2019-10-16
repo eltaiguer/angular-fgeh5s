@@ -1,0 +1,37 @@
+$accent-color: #FE6093;
+
+.text-container {
+  box-sizing: border-box;
+  color: #262E47;
+  font-size: 14px;
+  line-height: 38px;
+  font-family: Muli;
+  padding: 40px 47px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.word {
+  padding: 10px 0;
+  position: relative;
+  display: inline;
+
+  // &::selection,
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  mat-icon {
+    background-color: $accent-color;
+    border-radius: 50%;
+    color: white;
+  }
+}
+
+::selection {
+  background-color: var(--some-var);
+}

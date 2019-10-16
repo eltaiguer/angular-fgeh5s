@@ -1,0 +1,107 @@
+// need to import at least one angular material template stylesheet for progress abar
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'variables';
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+// overriding the progress bar styles
+// this should be properply done with a theme file but fo the scope of this POC this was enough
+.progress-bar {
+  .mat-progress-bar-buffer {
+    background-color: #E8F6FF;
+  }
+}
+
+.red-progress {
+  .progress-bar .mat-progress-bar-fill::after {
+    background-color: $red-progress;
+  }
+}
+
+.yellow-progress {
+  .progress-bar .mat-progress-bar-fill::after {
+    background-color: $yellow-progress;
+  }
+}
+
+.green-progress {
+  .progress-bar .mat-progress-bar-fill::after {
+    background-color: $green-progress;
+  }
+}
+
+// styles for list component
+// override input style for searchbar in list component
+.searchbar {
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix,
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-underline,
+  .mat-form-field-label-wrapper {
+    display: none;
+  }
+  
+  .mat-form-field-infix {
+    border: 0;
+    padding: 0;
+  }
+
+  .mat-form-field-wrapper,
+  .mat-form-field-flex,
+  .mat-form-field-infix,
+  .mat-input-element {
+    height: 100%;
+    margin: 0;
+  }
+
+  &.mat-form-field {
+    border: solid 1px;
+  }
+}
+
+// angular material overrides for list component
+app-list {
+  .mat-list-item-content {
+    padding: 0 !important;
+  }
+
+  .mat-list-base .mat-list-item {
+    height: auto;
+  }
+
+  .mat-checkbox-checked.mat-checkbox .mat-checkbox-background,
+  .mat-checkbox .mat-checkbox-background {
+    background-color: white;
+  }
+
+  .mat-checkbox-layout {
+    border: solid 1px;
+    border-color: #9DA6B4;
+    border-radius: 3px;
+  }
+
+  .mat-checkbox-checkmark-path {
+    // angular material uses important on this property so it's needed for the override
+    stroke: #59DBC1 !important;
+  }
+
+  .mat-checkbox-ripple.mat-ripple {
+    display: none;
+  }
+
+  .mat-list-base {
+    padding-top: 0;
+  }
+}

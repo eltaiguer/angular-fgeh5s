@@ -1,0 +1,19 @@
+<app-card-item *ngFor="let item of items">
+  <div class="play-btn">
+    <button class="playback-btn" (click)="playItem(item)" mat-icon-button>
+      <mat-icon svgIcon="play-icon"></mat-icon>
+      <!-- <ng-template #pauseIcon>
+        <mat-icon class="pause-icon" svgIcon="pause-icon"></mat-icon>
+      </ng-template> -->
+    </button>
+  </div>
+  <div class="trans-data">
+    <div class="top-section">
+      <span class="time">{{item.timeStart * 1000 | date:'mm:ss'}} - {{item.timeEnd * 1000 | date:'mm:ss'}}</span>
+    </div>
+    <p class="trans-text">
+      {{item.text}}
+    </p>
+  </div>
+
+</app-card-item>

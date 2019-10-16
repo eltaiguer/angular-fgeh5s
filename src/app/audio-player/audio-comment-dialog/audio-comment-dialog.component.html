@@ -1,0 +1,8 @@
+<div class="comment-dialog">
+  <button (click)="closeDialog()" class="close-btn" mat-icon-button>
+    <mat-icon svgIcon="cross-icon"></mat-icon>
+  </button>
+  <span class="title">{{comment.title}}</span>
+  <p class="body">{{comment.text}}</p>
+  <span class="author">By: <a class="accent">{{comment.author}}</a></span>
+</div>

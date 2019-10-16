@@ -1,0 +1,23 @@
+<div class="actions-container">
+  <div class="right-side"> 
+    <mat-slide-toggle class="missing-toggle" labelPosition="before">
+      Missing items
+    </mat-slide-toggle>
+    <mat-slide-toggle [disabled]="!audioFile" [checked]="showAudioPlayer" (change)="toggleAudioPlayerChange($event.checked)" 
+      class="listen-toggle" labelPosition="before" matTooltip="No audio available" [matTooltipDisabled]="audioFile">
+      Listen audio
+    </mat-slide-toggle>
+    <div class="buttons">
+      <mat-button-toggle [disabled]="!audioFile" class="action-btn" value="true" aria-label="Text align left" (click)="audioFile && toggleCommentsChange()"
+        [checked]="showComments">
+        <mat-icon svgIcon="speech-icon"></mat-icon>
+      </mat-button-toggle>
+      <button [disabled]="!hasUndo" (click)="undo()" class="action-btn" mat-stroked-button>
+        <mat-icon class="outline-icon" svgIcon="undo-icon"></mat-icon>
+      </button>
+      <button [disabled]="!hasRedo" (click)="redo()" class="action-btn" mat-stroked-button>
+        <mat-icon class="outline-icon redo-icon" svgIcon="redo-icon"></mat-icon>
+      </button>
+    </div>
+  </div>
+<div>

@@ -1,0 +1,4 @@
+<div class="highlight-chip" [matTooltip]="highlightName.innerText" [matTooltipDisabled]="highlightName.scrollWidth <= highlightName.clientWidth">
+  <div class="color-dot" [style.background-color]="color"></div>
+  <div #highlightName class="highlight-name"><ng-content></ng-content></div>
+</div>

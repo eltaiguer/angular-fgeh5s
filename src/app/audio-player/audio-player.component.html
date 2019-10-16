@@ -1,0 +1,56 @@
+<div class="audio-player-component">
+  <div class="timeline-controls">
+    <div class="progress-container">
+      <audio #audioElem
+        [src]="audioFile">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <div *ngIf="showComments && comments.length && duration" class="comments-container">
+        <div *ngFor="let comment of comments" class="comment-marker" [style.left.%]="getMarkerPosition(comment)" 
+          [class.showing-comment]="isCommentVisible(comment)">
+          <div class="circle" (click)="toggleComment(comment)">
+          </div>
+          <app-audio-comment-dialog [style.left.vw]="getResponsivePosition(comment)" #commentDialog (toggleComment)="toggleComment(comment)"
+             [comment]="comment"></app-audio-comment-dialog>
+        </div>
+      </div>
+      <progress (click)="progressClicked($event)" id="progress" [max]="duration" [value]="currentTime" min="0">
+        <span id="progress-bar"></span>
+      </progress>
+    </div>
+
+    <div class="controls">
+      <span class="time">{{currentTime * 1000 | date:'mm:ss'}}</span>
+      <div class="button-container">
+        <div>
+          <button (click)="rewindAudio()" class="back-btn" mat-icon-button>
+            <mat-icon svgIcon="back-icon"></mat-icon>
+          </button>
+          <button class="playback-btn" (click)="togglePlayback()" mat-icon-button>
+            <mat-icon *ngIf="audioElem.paused; else pauseIcon" svgIcon="play-icon"></mat-icon>
+            <ng-template #pauseIcon>
+              <mat-icon class="pause-icon" svgIcon="pause-icon"></mat-icon>
+            </ng-template>
+          </button>
+          <button (click)="forwardAudio()" class="forward-btn" mat-icon-button>
+            <mat-icon svgIcon="forward-icon"></mat-icon>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="zoomControl" class="zoom-control">
+        <div class="title">Zoom</div>
+        <mat-slider
+            class="zoom-slider"            
+            max="200"
+            min="0"
+            step="10"
+            tickInterval="auto"
+            [(ngModel)]="zoomValue"
+            (input)="onZoomChanged($event)">
+        </mat-slider>
+      </div>
+    </div>    
+  </div>
+</div>

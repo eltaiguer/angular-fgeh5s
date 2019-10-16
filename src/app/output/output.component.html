@@ -1,0 +1,64 @@
+<div class="left-section">
+
+  <div class="header">
+    <div class="highlight-select-container">
+      <span class="title">Highlight</span>
+      <select class="audio-select" matNativeControl (change)="selectAudio($event)">
+        <option *ngFor="let key of keys(files)" [value]="key">{{files[key].audio_name}}</option>
+      </select>
+    </div>
+    <mat-button-toggle [disabled]="!audioFile" class="action-btn" value="true" aria-label="Text align left" (click)="audioFile && toggleComments()"
+      [checked]="showComments">
+      <mat-icon svgIcon="speech-icon"></mat-icon>
+    </mat-button-toggle>
+    <div class="right-section">
+      <button class="expand-btn" mat-button (click)="expand()">
+        {{audioSectionExpanded ? 'Collapse' : 'Expand'}}
+        <mat-icon [class.left-arrow]="audioSectionExpanded" svgIcon="right-arrow"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="audio-section">
+    <div class="found-items" #foundItemsContainer>
+      <div class="overflow-item" [style.width.px]="waveformContainer.children[0] && waveformContainer.children[0].scrollWidth"></div>
+      <div class="found-item" *ngFor="let key of keys(foundItems)" [class.item-expanded]="foundItems[key].expanded"
+        [style.background-color]="foundItems[key].group_color" [style.left.px]="foundItems[key].left" 
+        [style.width.px]="foundItems[key].width">
+        <div class="time">{{foundItems[key].timestamp_init | date:'mm:ss'}} - {{foundItems[key].timestamp_end | date:'mm:ss'}}</div>
+        <div class="name">{{foundItems[key].item_name}}</div>
+      </div>
+    </div>
+    <div id="wave-timeline"></div>
+    <div id="waveform" #waveformContainer class="waveform-container"></div>
+
+    <app-comment *ngIf="showComments" (commentAdded)="commentAdded($event)"></app-comment>
+
+    <app-audio-player [comments]="comments" [audioFile]="audioFile" zoomControl="true" [showComments]="showComments"></app-audio-player>
+  </div>
+</div>
+
+<div class="tabs-section" [class.collapsed]="audioSectionExpanded">
+  <mat-tab-group class="tabs" color="primary">
+    <mat-tab label="Items">
+      <ng-template matTabContent>
+        <app-items-section [items]="foundItems"></app-items-section>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Transcriptions">
+      <ng-template matTabContent> 
+        <app-transcriptions-section [transcription]="transcription"></app-transcriptions-section> 
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Parameters"> 
+      <ng-template matTabContent>
+        <app-parameters-section [parameters]="parameters"></app-parameters-section> 
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Rules"> 
+      <ng-template matTabContent>
+        <app-rules-section [rules]="rules"></app-rules-section> 
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

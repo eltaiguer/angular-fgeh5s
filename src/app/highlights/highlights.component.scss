@@ -1,0 +1,14 @@
+app-audio-player {
+  display: block;
+}
+
+.highlights-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-text {
+  height: 100%;
+  flex-grow: 1;
+}
