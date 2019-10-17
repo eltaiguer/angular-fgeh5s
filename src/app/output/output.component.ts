@@ -94,15 +94,15 @@ export class OutputComponent implements OnInit, AfterViewInit {
           plugins: [
            TimelinePlugin.create({
               container: '#wave-timeline',
-              timeInterval: 2,
+
               formatTimeCallback: function(sec, pxPerSec) {
                 const minutes = '00' + Math.trunc(sec / 60);
                 const seconds = '00' + sec % 60;
                 return minutes.slice(minutes.length - 2) + ':' + seconds.slice(seconds.length - 2);
               },
-              primaryLabelInterval: function(pxPerSec) {
-                return 1;
-              }
+              // primaryLabelInterval: function(pxPerSec) {
+              //   return 1;
+              // }
             }),
             RegionsPlugin.create()
           ]
