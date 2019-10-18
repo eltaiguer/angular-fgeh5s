@@ -150,6 +150,7 @@ $btn-checked-color: #FE6093;
     overflow: hidden;
     padding: .3125rem;
     position: absolute;
+
   }
 
   .time {
@@ -157,8 +158,12 @@ $btn-checked-color: #FE6093;
     font-weight: bold;
   }
 
-  .item-expanded .time {
-    display: initial;
+  .item-expanded {
+    z-index: 1;
+
+    .time {
+      display: initial;
+    }
   }
 }
 
