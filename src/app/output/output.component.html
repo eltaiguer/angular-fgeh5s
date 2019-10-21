@@ -25,7 +25,7 @@
       <div class="found-item" *ngFor="let key of keys(foundItems)" [class.item-expanded]="foundItems[key].expanded"
         [style.background-color]="foundItems[key].group_color" [style.left.px]="foundItems[key].left" [style.width.px]="!foundItems[key].expanded && foundItems[key].width"
         [style.width]="foundItems[key].expanded && 'auto'"
-        [style.min-width.]="foundItems[key].expanded && 'auto'">
+        [style.min-width.px]="foundItems[key].expanded && foundItems[key].width">
         <div class="time">{{foundItems[key].timestamp_init | date:'mm:ss'}} - {{foundItems[key].timestamp_end | date:'mm:ss'}}</div>
         <div class="name">{{foundItems[key].item_name}}</div>
       </div>
