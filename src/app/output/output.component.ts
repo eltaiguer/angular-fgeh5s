@@ -140,6 +140,7 @@ export class OutputComponent implements OnInit, AfterViewInit {
       this.wavesurfer.empty();
       this.wavesurfer.drawBuffer();
       this.audioPlayerStatus.$skipAudio.next(this.audioPlayerStatus.$currentTime.getValue());
+      if (this.audioPlayerStatus.$playing.getValue()) 
     }, 150);
   }
 
