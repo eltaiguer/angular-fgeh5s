@@ -140,7 +140,9 @@ export class OutputComponent implements OnInit, AfterViewInit {
       this.wavesurfer.empty();
       this.wavesurfer.drawBuffer();
       this.audioPlayerStatus.$skipAudio.next(this.audioPlayerStatus.$currentTime.getValue());
-      if (this.audioPlayerStatus.$playing.getValue()) 
+      if (this.audioPlayerStatus.$playing.getValue()) {
+        this.wavesurfer.play();
+      }
     }, 150);
   }
 
@@ -149,6 +151,7 @@ export class OutputComponent implements OnInit, AfterViewInit {
   calculateFoundItemsPosition() {
     if (this.waveContainer && this.waveContainer.nativeElement && this.waveContainer.nativeElement.children.length) {
       this.zone.run(() => {
+        this.cdRef.detectChanges();
         for (const key in this.foundItems) {
           if (this.foundItems.hasOwnProperty(key)) {
             const element = this.foundItems[key];

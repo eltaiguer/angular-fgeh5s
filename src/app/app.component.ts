@@ -14,23 +14,23 @@ export class AppComponent  {
       found_items: {
         '0': {
           'start': 0, 
-          'end': 5,
+          'end': 15,
           'item_id': 57,
           'item_name': 'saludo_inicial',
           'accuracy': 0.8,
           'group_color': '#32A560',
           timestamp_init: 0,
-          timestamp_end: 5000
+          timestamp_end: 15000
         },
         '1': {
-          'start': 8, 
-          'end': 12,
+          'start': 12, 
+          'end': 20,
           'item_id': 100,
           'item_name': 'respuesta_ok',
           'accuracy': 0.8,
           'group_color': '#AAA560',
-          timestamp_init: 8000,
-          timestamp_end: 12000
+          timestamp_init: 16000,
+          timestamp_end: 20000
         },
       },
       transcription: 'assets/highlights/text-data.json',
